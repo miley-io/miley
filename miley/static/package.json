@@ -1,1 +1,1 @@
-{"description": "", "scripts": {"test": "test"}, "version": "", "name": "app.py", "main": "js/app.js", "devDependencies": {}, "license": "", "author": "", "repository": {"url": "", "type": "git"}}
+{"license": "", "version": "", "name": "app", "repository": {"url": "", "type": "git"}, "scripts": {"test": "test"}, "devDependencies": {}, "author": "", "main": "js/app.js", "description": ""}

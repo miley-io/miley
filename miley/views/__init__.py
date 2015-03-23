@@ -7,7 +7,7 @@
     
 
     :copyright: (c) 2015 by Anonymous
-    :license: BSD, see LICENSE for more details.
+    :license: see LICENSE for more details.
 """
 
 from flask import render_template

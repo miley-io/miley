@@ -7,13 +7,16 @@
     
 
     :copyright: (c) 2015 by Anonymous
-    :license: BSD, see LICENSE for more details.
+    :license: see LICENSE for more details.
 """
 
 import os
 import sys
 import types
-import configparser
+try:
+    import ConfigParser as configparser
+except:
+    import configparser
 
 path = os.path.dirname(os.path.realpath(__file__))
 approot = os.path.abspath(os.path.join(path, os.pardir))
@@ -31,4 +34,9 @@ config.getdef = types.MethodType(getdef, config)
 HOST = config.getdef("server", "host", '0.0.0.0')
 PORT = int(config.getdef("server", "port", 8080))
 DEBUG = bool(int(config.getdef("server", "debug", 1)))
-options = {'debug': DEBUG, 'host': HOST, 'port': PORT}
+template_folder = 'static/app/views'
+options = {
+    'debug': DEBUG,
+    'host': HOST,
+    'port': PORT,
+}
