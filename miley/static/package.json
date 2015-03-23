@@ -1,1 +1,25 @@
-{"license": "", "version": "", "name": "app", "repository": {"url": "", "type": "git"}, "scripts": {"test": "test"}, "devDependencies": {}, "author": "", "main": "js/app.js", "description": ""}
+{
+  "name": "miley",
+  "version": "0.0.1",
+  "description": "l",
+  "main": "app/scripts/app.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nomagi/miley.git"
+  },
+  "keywords": [
+    "Productivity"
+  ],
+  "author": "= <=>",
+  "license": "Apache",
+  "bugs": {
+    "url": "https://github.com/nomagi/miley/issues"
+  },
+  "homepage": "https://github.com/nomagi/miley"
+}
