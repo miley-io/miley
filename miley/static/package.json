@@ -1,11 +1,54 @@
 {
   "name": "miley",
-  "version": "0.0.1",
-  "description": "l",
-  "main": "app/scripts/app.js",
+  "version": "0.0.2",
+  "description": "Miley is a milestone based project management system",
+  "main": "build/js/miley.js",
   "directories": {
     "test": "test"
   },
+  "dependencies": {
+    "angular": "^1.3.15",
+    "angular-ui-router": "^0.2.13",
+    "angular-mocks": "^1.3.15",
+    "brfs": "^1.4.0",
+    "browser-sync": "^1.9.1",
+    "browserify-ngannotate": "^0.1.0",
+    "express": "^4.12.3",
+    "gulp": "^3.8.11",
+    "gulp-angular-templatecache": "^1.5.0",
+    "del": "^0.1.3",
+    "browserify": "^5.13.1",
+    "gulp-changed": "^1.2.1",
+    "browserify-shim": "^3.8.3",
+    "gulp-imagemin": "^1.2.1",
+    "gulp-if": "^1.2.5",
+    "gulp-karma": "^0.0.4",
+    "gulp-notify": "^2.2.0",
+    "gulp-protractor": "^0.0.11",
+    "gulp-rename": "^1.2.0",
+    "gulp-jshint": "^1.9.4",
+    "gulp-streamify": "^0.0.5",
+    "gulp-autoprefixer": "^2.1.0",
+    "gulp-util": "^3.0.4",
+    "gulp-uglify": "^1.1.0",
+    "gulp-sass": "^0.7.3",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.7",
+    "jshint-stylish": "^1.0.1",
+    "karma-firefox-launcher": "^0.1.4",
+    "karma-jasmine": "^0.1.5",
+    "morgan": "^1.5.2",
+    "pretty-hrtime": "^0.2.2",
+    "protractor": "^1.8.0",
+    "run-sequence": "^0.3.7",
+    "tiny-lr": "^0.0.9",
+    "uglifyify": "^2.6.0",
+    "vinyl-source-stream": "^0.1.1",
+    "watchify": "^2.5.0",
+    "imagemin-pngcrush": "^0.1.0",
+    "karma-bro": "^0.7.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "test": "test"
   },
@@ -16,7 +59,7 @@
   "keywords": [
     "Productivity"
   ],
-  "author": "= <=>",
+  "author": "Nomagi",
   "license": "Apache",
   "bugs": {
     "url": "https://github.com/nomagi/miley/issues"
