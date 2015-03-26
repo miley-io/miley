@@ -1,0 +1,24 @@
+{
+  "name": "miley",
+  "version": "0.0.1",
+  "homepage": "https://github.com/nomagi/miley",
+  "authors": [
+    "valish <v@hackerlist.net>"
+  ],
+  "description": "Miley is a milestone based project management system",
+  "main": "build/css/miley.css",
+  "keywords": [
+    "Productivity"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fever": "*"
+  }
+}
