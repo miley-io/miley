@@ -14,20 +14,20 @@ angular.element(document).ready(function() {
 
   var requires = [
     'ui.router',
-    'app.controllers',
-    'app.services',
-    'app.directives'
+    'miley.controllers',
+    'miley.services',
+    'miley.directives'
   ];
 
   // mount on window for testing
-  window.app = angular.module('app', requires);
+  window.app = angular.module('miley', requires);
 
-  angular.module('app').constant('AppSettings', require('./config'));
+  angular.module('miley').constant('AppSettings', require('./config'));
 
-  angular.module('app').config(require('./routes'));
+  angular.module('miley').config(require('./routes'));
 
-  angular.module('app').run(require('./on_run'));
+  angular.module('miley').run(require('./on_run'));
 
-  angular.bootstrap(document, ['app']);
+  angular.bootstrap(document, ['miley']);
 
 });

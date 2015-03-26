@@ -26,7 +26,6 @@ module.exports = {
 
   'views': {
     'watch': [
-      'app/index.html',
       'app/views/**/*.html',
       'app/**/views/*.html'
     ],
@@ -39,8 +38,8 @@ module.exports = {
   },
 
   'browserify': {
-    'entries'   : ['./app/scripts/app.js'],
-    'bundleName': 'app.js'
+    'entries'   : ['./app/scripts/miley.js'],
+    'bundleName': 'miley.js'
   },
 
   'test': {

@@ -2,7 +2,7 @@
 
 var angular = require('angular');
 
-module.exports = angular.module('app.controllers', []);
+module.exports = angular.module('miley.controllers', []);
 
 // Define the list of controllers here
-//require('./example.js');
+require('./landing.js');

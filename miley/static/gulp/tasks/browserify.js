@@ -52,6 +52,6 @@ function buildScript(file) {
 
     gulp.task('browserify', function() {
 
-    return buildScript('app');
+    return buildScript('miley.js');
 
 });
