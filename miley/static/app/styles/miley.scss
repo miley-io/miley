@@ -1,4 +1,16 @@
-// Imports
+/*
+
+  miley.scss
+  ~~~~~~~~~~
+  
+  :copyright: (c) 2015 by Nomagi
+  :license: See LICENSE for more details.
+
+*/
+
+/* Libraries */
 @import '../../bower_components/fever/scss/fever';
 
-// Miley Stylesheet
+/* Components */
+@import 'base';
+@import 'landing';
