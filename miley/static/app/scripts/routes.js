@@ -26,7 +26,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
     .state('Mission', {
       url: '/mission',
       controller: 'MissionCtrl as mission',
-      templateUrl: 'partials/mission'
+      templateUrl: 'partials/mission/base'
     });
 
   $urlRouterProvider.otherwise('/');
