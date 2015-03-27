@@ -1,1 +1,3 @@
- 
+module.exports = {
+  apiPath: 'https://test.api.nomagi.com/v1'               
+} 
