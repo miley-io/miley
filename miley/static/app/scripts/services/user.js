@@ -8,30 +8,46 @@ var AppSettings = require('../config.js');
  */
 function User($q, $http) {
 
-  var user = {};
-
-  user.reset = function() {
-    return {type: "User"}
-  };
-
-  user.auth = function(user) {
-    var deferred = $q.defer();
-
-    $http({
-      method: 'POST',
-      url: AppSettings.apiPath + '/auth/login?service=miley',
-      data: user
-    }).success(function(data) {
-      deferred.resolve(data);
-    }).error(function(data) {
-      deferred.reject(err, status);
-    })
-
-    return deferred.promise;
-  };
-
-  return user;
-
+  return {
+    reset: function() {
+      return {
+        type: "User",
+        email: ""
+      }
+    },
+    
+    session: function() {    
+      var deferred = $q.defer();
+      $http({
+        method: 'GET',
+        url: AppSettings.apiPath + '/session'
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(data) {
+        deferred.reject(err, status);
+      })
+      
+      return deferred.promise;
+    },
+    
+    login: function(creds) {
+      var deferred = $q.defer();
+      
+      $http({
+        method: 'POST',
+        url: AppSettings.apiPath + '/auth/login?service=miley',
+        data: creds,
+        withCredentials: true,
+        dataType: "json"
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(data) {
+        deferred.reject(err, status);
+      })
+      
+      return deferred.promise;
+    }
+  }
 }
 
 mileyServices.service('User', User);
