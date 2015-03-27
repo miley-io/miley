@@ -1,3 +1,4 @@
+settings.json
 uwsgi.ini
 # project
 *.cfg
