@@ -12,6 +12,16 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
       url: '/',
       controller: 'LandingCtrl as landing',
       templateUrl: 'partials/landing'
+    })
+    .state('Login', {
+      url: '/login',
+      controller: 'LoginCtrl as login',
+      templateUrl: 'partials/login'
+    })
+    .state('Signup', {
+      url: '/signup',
+      controller: 'SignupCtrl as signup',
+      templateUrl: 'partials/signup'
     });
 
   $urlRouterProvider.otherwise('/');
