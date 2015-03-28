@@ -24,7 +24,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
           }
         }
       */
-    })  
+    })
     .state('Login', {
       url: '/login',
       controller: 'login',
@@ -40,7 +40,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
       controller: 'roadmap',
       templateUrl: 'partials/roadmap/base'
     });
-
+  
   $urlRouterProvider.otherwise('/');
 }
 
