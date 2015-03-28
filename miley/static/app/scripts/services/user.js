@@ -9,7 +9,7 @@ var AppSettings = require('../config.js');
 function User($q, $http) {
 
   return {
-    reset: function() {
+    default: function() {
       return {
         type: "User",
         email: ""
@@ -20,7 +20,9 @@ function User($q, $http) {
       var deferred = $q.defer();
       $http({
         method: 'GET',
-        url: AppSettings.apiPath + '/session'
+        url: AppSettings.apiPath + '/session',
+        withCredentials: true,
+        dataType: "json"
       }).success(function(data) {
         deferred.resolve(data);
       }).error(function(data) {

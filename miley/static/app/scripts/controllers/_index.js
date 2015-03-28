@@ -8,3 +8,5 @@ module.exports = angular.module('miley.controllers', []);
 require('./landing.js');
 require('./login.js');
 require('./signup.js');
+require('./workspace.js');
+require('./roadmap.js');

@@ -1,18 +1,12 @@
 'use strict';
 
-var mileyControllers = require('./_index');
+var controllers = require('./_index');
 
 /**
  * @ngInject
  */
-
-function SignupCtrl($stateParams, $timeout) {
-
-  // ViewModel
-  var signup = this;
-
-  signup.title = "Sign up";
-
+function signup($stateParams, $timeout) {
+  this.title = "sign up";
 }
 
-mileyControllers.controller('SignupCtrl', SignupCtrl);
+controllers.controller('signup', signup);

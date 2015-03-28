@@ -20,7 +20,11 @@ angular.element(document).ready(function() {
   ];
 
   // mount on window for testing
-  window.app = angular.module('miley', requires);
+  window.app = angular.module('miley', requires, function($interpolateProvider) {
+    // use custom templating delimiters
+    $interpolateProvider.startSymbol('[[');
+    $interpolateProvider.endSymbol(']]');    
+  });
 
   angular.module('miley').constant('AppSettings', require('./config'));
 
