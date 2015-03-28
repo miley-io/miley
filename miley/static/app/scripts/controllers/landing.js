@@ -1,18 +1,12 @@
 'use strict';
 
-var mileyControllers = require('./_index');
+var controllers = require('./_index');
 
 /**
  * @ngInject
  */
-
-function LandingCtrl($stateParams, $timeout) {
-
-  // ViewModel
-  var landing = this;
-
-  landing.title = "home";
-
+function landing($stateParams, $timeout) {
+  this.title = "home";
 }
 
-mileyControllers.controller('LandingCtrl', LandingCtrl);
+controllers.controller('landing', landing);
