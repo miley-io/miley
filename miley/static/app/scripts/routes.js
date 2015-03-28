@@ -8,27 +8,34 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
-    .state('Landing', {
+    .state('Home', {
       url: '/',
-      controller: 'LandingCtrl as landing',
-      templateUrl: 'partials/landing'
+      templateUrl: 'partials/landing',
+      controller: 'landing'
+      /*
+        views: {
+          'landing': {
+            templateUrl: 'partials/landing',
+            controller: 'landing'
+          },
+          'workspace': {
+            templateUrl: 'partials/workspace/base',
+            controller: 'workspace'
+          }
+        }
+      */
     })
     .state('Login', {
       url: '/login',
-      controller: 'LoginCtrl as login',
-      templateUrl: 'partials/login'
+      controller: 'login',
+      templateUrl: 'partials/auth/login'
     })
     .state('Signup', {
       url: '/signup',
-      controller: 'SignupCtrl as signup',
-      templateUrl: 'partials/signup'
-    })
-    .state('Mission', {
-      url: '/mission',
-      controller: 'MissionCtrl as mission',
-      templateUrl: 'partials/mission/base'
+      controller: 'signup',
+      templateUrl: 'partials/auth/signup'
     });
-
+  
   $urlRouterProvider.otherwise('/');
 
 }
