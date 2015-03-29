@@ -16,29 +16,22 @@ function Mission($q, $http) {
       }
     },
     
-    get: function(mid) {
+    get: function(uname, mslug) {
       var deferred = $q.defer();
       $http({
         method: 'GET',
-        url: AppSettings.apiPath + '/missions/' + mid,
+        url: AppSettings.apiPath + '/orgs/' + uname + '/missions/' + mslug,
         withCredentials: true,
         dataType: "json"
       }).success(function(data) {
         deferred.resolve(data);
-      }).error(function(data) {
+      }).error(function(err, status) {
         deferred.reject(err, status);
       })
       
       return deferred.promise;
-    },
-    
-    milestones: function() {
-
-    },
-
-    tasks: function() {
-
     }
+
   }
 }
 

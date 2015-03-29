@@ -35,12 +35,12 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
       controller: 'signup',
       templateUrl: 'partials/auth/signup'
     })
-    .state('Roadmap', {
-      url: '/roadmap', // to become /:user/:mission
-      controller: 'roadmap',
-      templateUrl: 'partials/roadmap/base'
+    .state('Mission', {
+      url: '/:uname/:mslug',
+      controller: 'MissionCtrl as mission',
+      templateUrl: 'partials/mission/base'
     });
-  
+      
   $urlRouterProvider.otherwise('/');
 }
 

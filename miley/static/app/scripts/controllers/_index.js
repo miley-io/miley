@@ -9,4 +9,4 @@ require('./landing.js');
 require('./login.js');
 require('./signup.js');
 require('./workspace.js');
-require('./roadmap.js');
+require('./mission.js');
