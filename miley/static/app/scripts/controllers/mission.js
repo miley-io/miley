@@ -5,7 +5,7 @@ var controllers = require('./_index');
 /**
  * @ngInject
  */
-function MissionCtrl($state, $stateParams, $timeout, Mission) {
+function MissionCtrl($state, $stateParams, Mission) {
 
   var mission = this;
   var uname = $stateParams.uname;
@@ -17,7 +17,6 @@ function MissionCtrl($state, $stateParams, $timeout, Mission) {
   }, function() {
     $state.go('Login');
   });
-  
 }
 
 controllers.controller('MissionCtrl', MissionCtrl);

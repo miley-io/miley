@@ -8,12 +8,14 @@ var AppSettings = require('../config.js');
  */
 function Mission($q, $http) {
 
+  var _default = {
+    type: 'User',
+    email: ""
+  }
+
   return {
     reset: function() {
-      return {
-        type: "User",
-        email: ""
-      }
+      return _default;
     },
     
     get: function(uname, mslug) {
@@ -28,10 +30,16 @@ function Mission($q, $http) {
       }).error(function(err, status) {
         deferred.reject(err, status);
       })
-      
       return deferred.promise;
-    }
+    },
+    
+    milestones: function() {
+      return []
+    },
 
+    tasks: function() {
+      return []
+    }
   }
 }
 

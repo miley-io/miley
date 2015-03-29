@@ -10,37 +10,62 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
   $stateProvider
     .state('Home', {
       url: '/',
-      templateUrl: 'partials/landing',
-      controller: 'landing'
-      /*
-        views: {
-          'landing': {
-            templateUrl: 'partials/landing',
-            controller: 'landing'
-          },
-          'workspace': {
-            templateUrl: 'partials/workspace',
-            controller: 'workspace'
-          }
+      views: {
+        'public': {
+          templateUrl: 'partials/public/landing',
+          controller: 'LandingCtrl as landing'
+        },
+        'private': {
+          templateUrl: 'partials/private/workspace',
+          controller: 'WorkspaceCtrl as workspace'
         }
-      */
+      }
     })
     .state('Login', {
       url: '/login',
-      controller: 'login',
-      templateUrl: 'partials/auth/login'
+      views: {
+        'public': {
+          templateUrl: 'partials/public/auth/login',
+          controller: 'LoginCtrl as auth'
+        },
+        'private': {
+          controller: function($state) { $state.go('Home'); }
+        }
+      }
+    })
+    .state('Logout', {
+      url: '/logout',
+      views: {
+        'private': {
+          controller: 'LogoutCtrl'
+        }
+      }
     })
     .state('Signup', {
       url: '/signup',
-      controller: 'signup',
-      templateUrl: 'partials/auth/signup'
+      views: {
+        'public': {
+          templateUrl: 'partials/public/auth/signup',
+          controller: 'SignupCtrl as signup'
+        },
+        'private': {
+          controller: function($state) { $state.go('Home'); }
+        }
+      }
     })
     .state('Mission', {
       url: '/:uname/:mslug',
-      controller: 'MissionCtrl as mission',
-      templateUrl: 'partials/mission/base'
+      views: {
+        'public': {
+          controller: function($state) { $state.go('Login'); }
+        },
+        'private': {
+          templateUrl: 'partials/private/mission/base',
+          controller: 'MissionCtrl as mission'
+        }
+      }
     });
-      
+  
   $urlRouterProvider.otherwise('/');
 }
 

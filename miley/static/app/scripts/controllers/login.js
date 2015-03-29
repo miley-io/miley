@@ -5,15 +5,14 @@ var controllers = require('./_index');
 /**
  * @ngInject
  */
-function login($scope, $stateParams, $timeout, User) {
-  $scope.user = {};
-  $scope.title = "Login";
-  $scope.signin = function(creds) {
-    console.log($scope.user);
-    User.login($scope.user).then(function(data) {
-      var s = User.session();
+function LoginCtrl($stateParams, Session) {
+  this.user = {};
+  this.title = "Login";
+  this.signin = function() {
+    Session.login(this.user).then(function(data) {
+      window.location.href = '/';
     });
   };
 }
 
-controllers.controller('login', login);
+controllers.controller('LoginCtrl', LoginCtrl);

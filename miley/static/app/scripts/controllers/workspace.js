@@ -5,8 +5,8 @@ var controllers = require('./_index');
 /**
  * @ngInject
  */
-function workspace($stateParams, $timeout) {
+function WorkspaceCtrl($stateParams, Workspace) {
   this.title = "workspace";
 }
 
-controllers.controller('workspace', workspace);
+controllers.controller('WorkspaceCtrl', WorkspaceCtrl);

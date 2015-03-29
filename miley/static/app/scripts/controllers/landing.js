@@ -5,8 +5,8 @@ var controllers = require('./_index');
 /**
  * @ngInject
  */
-function landing($stateParams, $timeout) {
+function LandingCtrl() {
   this.title = "home";
 }
 
-controllers.controller('landing', landing);
+controllers.controller('LandingCtrl', LandingCtrl);

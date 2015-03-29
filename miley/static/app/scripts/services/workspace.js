@@ -7,13 +7,13 @@ var AppSettings = require('../config.js');
  * @ngInject
  */
 function Workspace($q, $http) {
+  var _default = [];
+
   return {
-    roadmaps: {},
+    workspace: _default,
 
     default: function() {
-      return {
-        roadmaps: {}
-      }
+      return _default;
     },
     
     missions: function(user) {
@@ -25,10 +25,9 @@ function Workspace($q, $http) {
         dataType: "json"
       }).success(function(data) {
         deferred.resolve(data);
-      }).error(function(data) {
+      }).error(function(err, status) {
         deferred.reject(err, status);
-      })
-      
+      });
       return deferred.promise;
     }
   }

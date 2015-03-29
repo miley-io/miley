@@ -6,10 +6,11 @@ function context() {
   return {
     restrict: 'A',
 
-    controller: function($scope, $state, Context, User) {
-      // Updates the user's session within the app's context
-      User.session().then(function (session) {
-        Context.session = session;
+    controller: function($scope, Session) {
+      // On (all) pageload, fetch session
+      Session.get().then(function (session) {
+        Session.session = session;
+        $scope.session = session;
       });
     }
   }

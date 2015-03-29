@@ -6,8 +6,8 @@ function workspace() {
   return {
     restrict: 'A',
 
-    controller: function($scope, $state, Context, Workspace) {
-      // if (Context.session && Context.session.logged) { }
+    controller: function($scope, $state, Session, Workspace) {
+      // if (Session.session && Session.session.logged) { }
     }
   }
 }
