@@ -1,0 +1,33 @@
+/* 
+
+  _mission.scss
+  ~~~~~~~~~~~~~
+  
+  :copyright: (c) 2015 by Nomagi
+  :license: See LICENSE for more details.
+*/
+
+/* Imports */
+@import 'vars';
+
+/* Mission Page */
+article#mission {
+    header {
+        h1.mission-title {}
+        div.mission-actions {}
+    }
+    section.mission-tracker {}
+    section.mission-roadmap {
+        div.roadmap-milestones {
+            h5 {}
+            ul.roadmap-milestones-list {
+                li {
+                    span.milestone-number {}
+                    span.milestone-text {}
+                    span.milestone-completion {}
+                }
+            }
+        }
+    }
+}
+
