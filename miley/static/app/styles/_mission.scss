@@ -11,14 +11,24 @@
 @import 'vars';
 
 /* Mission Page */
-article#mission {
+#mission {
+    padding: 34px 0;
     header {
-        h1.mission-title {}
+        h1.mission-title {
+            font-size: 1.5rem;
+        }
         div.mission-actions {}
     }
-    section.mission-tracker {}
-    section.mission-roadmap {
-        div.roadmap-milestones {
+    .mission-tracker {
+        background: rgba(0,0,0,.1);
+        border: 3px dashed rgba(233,233,233,.2);
+        height: 233px;
+        margin-bottom: 2rem;
+    }
+    .mission-roadmap {
+        background: $light-gray;
+        min-height: 377px;
+        .roadmap-milestones {
             h5 {}
             ul.roadmap-milestones-list {
                 li {

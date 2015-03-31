@@ -3,13 +3,16 @@
   <header>
     <h1 class="mission-title">[[mission.org.name]] / [[mission.slug]]</h1>
     <div class="mission-actions"></div>
+    <div class="mission-description">
+      <p>[[mission.description]]</p>
+    </div>
   </header>
 
   <section class="mission-tracker"></section>
 
   <section class="mission-roadmap">
     <div class="roadmap-milestones">
-      <h5>Milestones</h5>
+      <h5></h5>
       <ul class="roadmap-milestones-list">
         <li ng:repeat="milestone in m.milestones" ui:sref:active="active">
           <a href ui:sref="mission.milestone({ id: milestone.muid })">
