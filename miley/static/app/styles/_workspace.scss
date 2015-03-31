@@ -1,0 +1,57 @@
+/* 
+
+  _workspace.scss
+  ~~~~~~~~~~~~~~~
+  
+  :copyright: (c) 2015 by Nomagi
+  :license: See LICENSE for more details.
+*/
+
+/* Imports */
+@import 'vars';
+
+/* Workspace View */
+#workspace {
+    padding: 34px 0;
+    h6 { font-size: 1rem; font-weight: 600; }
+    .workspace-missions {
+        ul.mission-cards {
+            list-style-type: none;
+            margin: 0;
+            li.mission-card {
+                padding: 8px;
+                margin-bottom: 8px;
+                a {
+                    background: rgba(0,0,0,.35);
+                    border: 3px solid rgba(0,0,0,.1);
+                    border-top-color: rgba(0,0,0,.05);
+                    border-radius: 3px;
+                    color: #fff;
+                    display: block;
+                    font-size: 1.3rem;
+                    height: 144px;
+                    padding: 13px;
+                    text-decoration: none;
+                }
+                /* For devices larger than 400px */
+                @media (min-width: 400px) {
+                    padding: 0;
+                    width: 100%;
+                }
+                /* For devices larger than 550px */
+                @media (min-width: 550px) {
+                    float: left;
+                    padding: 8px;
+                    width: 33.3333%;
+                    &:nth-child(3n-2) { padding-left: 0; }
+                    &:nth-child(3n+3) { padding-right: 0; }
+                }
+            }
+        }
+    }
+}
+
+
+
+
+
