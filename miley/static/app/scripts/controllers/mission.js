@@ -5,18 +5,14 @@ var controllers = require('./_index');
 /**
  * @ngInject
  */
-function MissionCtrl($state, $stateParams, Mission) {
+function MissionCtrl($state, $stateParams, _mission) {
 
   var mission = this;
   var uname = $stateParams.uname;
   var mslug = $stateParams.mslug;
 
-  Mission.get(uname, mslug).then(function(data) {
-    for (var k in data) { mission[k] = data[k]; }
-    console.log(mission);
-  }, function() {
-    $state.go('Login');
-  });
+  for (var k in _mission) { mission[k] = _mission[k]; }
+
 }
 
 controllers.controller('MissionCtrl', MissionCtrl);

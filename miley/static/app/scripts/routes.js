@@ -61,7 +61,18 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
         },
         'private': {
           templateUrl: 'partials/private/mission/base',
-          controller: 'MissionCtrl as mission'
+          controller: 'MissionCtrl as mission',
+          resolve: {
+            _mission: function($state, $stateParams, Mission) {
+              var uname = $stateParams.uname;
+              var mslug = $stateParams.mslug;
+              return Mission.get(uname, mslug).then(function(mission) {
+                return mission;
+              }, function() {
+                $state.go('Login');
+              })
+            }
+          }
         }
       }
     });
