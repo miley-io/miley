@@ -64,6 +64,10 @@ function Session($q, $http) {
         deferred.reject(err, status);
       });
       return deferred.promise;
+    },
+
+    missions: function() {
+      return [];
     }
   }
 }

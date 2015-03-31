@@ -1,6 +1,13 @@
 
 <div workspace id="workspace">
-  <section class="mission-productivity">
-    <div class="productivity-tracker"></div>
-  </section>
+  <h6>My Missions</h6>
+  <div class="workspace-missions">
+    <ul class="mission-cards">
+      <li ng:repeat="m in missions" class="mission-card">
+        <a href ui:sref="Mission({ uname: m.org.name, mslug: m.slug})">
+          <span>[[m.org.name]] / [[m.slug]]</span>
+        </a>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -10,17 +10,31 @@
     <script type="text/javascript" src="/static/build/js/miley.js"></script>
     <link rel="stylesheet" type="text/css" href="/static/build/css/miley.css"/>
   </head>
-  <body>
+  <body class="[[layout]]">
     <!--[if lt IE 8]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
 
     <div context>
       <div ng:if="session.logged">
-        <div ui:view="private"></div>
+        <div class="app-header">
+          <div class="contain">
+            <div class="app-header-logo centered">
+              <a href="/">Miley</a>
+            </div>
+            <div class="app-header-nav u-pull-right">
+              <ul>
+                <li><a href ui:sref="Logout">Logout</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div ui:view="private" class="contain"></div>
       </div>
       <div ng:if="!session.logged">
-        <div ui:view="public"></div>
+        <div class="contain">
+          <div ui:view="public"></div>
+        </div>
       </div>
     </div>
 

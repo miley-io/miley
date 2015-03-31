@@ -1,11 +1,38 @@
 
-<div id="roadmap">
+<article id="mission">
   <header>
     <h1 class="mission-title">[[mission.org.name]] / [[mission.slug]]</h1>
     <div class="mission-actions"></div>
+    <div class="mission-description">
+      <p>[[mission.description]]</p>
+    </div>
   </header>
 
-  <ul id="milestones">
-    <li></li>
-  </ul>
-</div>
+  <section class="mission-tracker"></section>
+
+  <section class="mission-roadmap">
+    <div class="roadmap-milestones">
+      <h5></h5>
+      <ul class="roadmap-milestones-list">
+        <li ng:repeat="milestone in m.milestones" ui:sref:active="active">
+          <a href ui:sref="mission.milestone({ id: milestone.muid })">
+            <span class="milestone-number">[[$$index + 1]].</span>
+            <span class="milestone-text">[[milestone.title]]</span>
+            <span class="milestone-completion">
+              <span class="amt-tasks-completed">0</span> /
+              <span class="amt-tasks-total">0</span>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <div class="roadmap-milestone-composer">
+        <div class="roadmap-milestone-composer-fields"></div>
+        <a class="open-milestone-composer"></a>
+      </div>
+    </div>
+    <div class="roadmap-window" ui:view="roadmap_window">
+      
+    </div>
+  </section>
+</article>
+
