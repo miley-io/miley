@@ -12,25 +12,15 @@
 
 /* Base styles */
 
-html { height: 100%; }
 body {
-    min-height: 100%;
     &.l-public {
         background: $soft-orange;
         color: #f9f9f9;
         input { color: #333; }
     }
     &.l-private {
-        background: $light-gray;
+        background: $dark-gray;
+        color: #f2f2f2;
     }
 }
 
-input[type=button],
-input[type=submit] {
-    &.silver {
-        background-color: #e5e5e5;
-        background-image: linear-gradient(#f2f2f2, #d8d8d8);
-        color: #6f6f6f;
-        text-shadow: 1px 0 #fff;
-    }
-}

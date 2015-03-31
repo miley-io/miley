@@ -17,24 +17,22 @@
 
     <div context>
       <div ng:if="session.logged">
-        <div id="app_header">
-          <div class="container">
-            <div id="logo">
+        <div class="app-header">
+          <div class="contain">
+            <div class="app-header-logo centered">
               <a href="/">Miley</a>
             </div>
-            <div class="app-header-user">
+            <div class="app-header-nav u-pull-right">
               <ul>
                 <li><a href ui:sref="Logout">Logout</a></li>
               </ul>
             </div>
           </div>
         </div>
-        <div id="app_window" class="container">
-          <div ui:view="private"></div>
-        </div>
+        <div ui:view="private" class="contain"></div>
       </div>
       <div ng:if="!session.logged">
-        <div class="container">
+        <div class="contain">
           <div ui:view="public"></div>
         </div>
       </div>
