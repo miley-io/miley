@@ -14,3 +14,39 @@
 /* Components */
 @import 'base';
 @import 'landing';
+@import 'workspace';
+
+/* Styles */
+#app_header {
+    $header-height: 55px;
+    background: $soft-orange;
+    color: #fff;
+    height: $header-height;
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+    #logo {
+        $logo-width: 144px;
+        position: absolute;
+        left: 50%;
+        line-height: $header-height;
+        margin-left: -$logo-width/2;
+        text-align: center;
+        width: $logo-width;
+        a {
+            font-size: 1.3rem;
+            font-weight: 700;
+        }
+    }
+    .app-header-user {
+        float: right;
+        ul li {
+            display: inline-block;
+            line-height: $header-height;
+            list-style-type: none;
+            a { display: block; }
+        }
+    }
+}
+

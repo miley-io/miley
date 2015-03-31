@@ -11,6 +11,13 @@ function context() {
       Session.get().then(function (session) {
         Session.session = session;
         $scope.session = session;
+
+        /* body class */
+        if ($scope.session.logged) {
+          $scope.layout = 'l-private';
+        } else {
+          $scope.layout = 'l-public';
+        }
       });
     }
   }

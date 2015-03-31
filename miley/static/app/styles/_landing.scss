@@ -12,11 +12,9 @@
 
 /* Public Landing Page */
 #landing {
-    background: $soft-orange;
     color: #f9f9f9;
-    height: 100vh;
     .masthead {
-        padding: 5rem;
+        padding: 5rem 0;
         text-align: center;
         h1 {
             font-size: 3rem;
@@ -41,7 +39,7 @@
             font-weight: 700;
         }
         @media (max-width: 550px) {
-            padding: 1rem;
+            padding: 1rem 0;
         }
     }
 }

@@ -7,5 +7,21 @@
   :license: See LICENSE for more details.
 */
 
+/* Imports */
+@import 'vars';
+
+/* Base styles */
+
 html { height: 100%; }
-body { min-height: 100%; }
+body {
+    min-height: 100%;
+    &.l-public {
+        background: $soft-orange;
+        color: #f9f9f9;
+        input { color: #333; }
+    }
+    &.l-private {
+        background: $light-gray;
+    }
+}
+
