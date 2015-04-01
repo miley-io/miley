@@ -25,19 +25,154 @@
         height: 233px;
         margin-bottom: 2rem;
     }
-    .mission-roadmap {
-        background: $light-gray;
-        min-height: 377px;
-        .roadmap-milestones {
-            h5 {}
-            ul.roadmap-milestones-list {
-                li {
-                    span.milestone-number {}
-                    span.milestone-text {}
-                    span.milestone-completion {}
+}
+
+.mission-roadmap {
+    background: $light-gray;
+    min-height: 377px;
+    .roadmap-milestones {
+        border-right: 1px solid rgba(120,120,145,.05);
+        float: left;
+        margin-top: 13px;
+        width: 287px;
+        h5 {
+            font-size: 1rem;
+            padding: 21px 34px;
+            text-transform: uppercase;
+        }
+        ul.roadmap-milestones-list {
+            border-top: 1px solid rgba(120,120,145,.05);
+            font-size: .8em;
+            position: relative;
+            &:after{
+                background: #fff;
+                content: "";
+                position: absolute;
+                top: 0;
+                height: 100%;
+                right: -19px;
+                width: 18px;
+            }
+        }
+        li {
+            cursor: pointer;
+            display: block;
+            height: 45px;
+            line-height: 45px;
+            margin-left: 21px;
+            padding: 0 13px;
+            position: relative;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: no-wrap;
+            width: 287px;
+            &:hover {
+                a { margin-left: -3px; }
+            }
+            &.active {
+                background: #fff;
+                border-radius: 5px;
+                -webkit-box-shadow: 0 1px 3px 2px rgba(120, 120, 145, 0.1);
+                -moz-box-shadow: 0 1px 3px 2px rgba(120, 120, 145, 0.1);
+                box-shadow: 0 1px 3px 2px rgba(120, 120, 145, 0.1);
+                border-bottom: rgba(120,120,145,0.13);
+                cursor: pointer;
+                margin: 0 -34px 0 -8px;
+                padding: 0 0 0 36px;
+                width: 300px;
+                -webkit-transition-duration: .2s;
+                -moz-transition-duration: .2s;
+                transition-duration: .2s;
+                .milestone-text {
+                    color: rgba(120,120,145,.79);
+                    font-weight: 500;
                 }
+                a { margin-left: 0px; }
+                &.ui-sortable-helper {
+                    -webkit-transition: none;
+                    -moz-transition: none;
+                    transition: none;
+                }
+            }
+            a {
+                display: block;
+                text-decoration: none;
+                -webkit-transition-duration: .2s;
+                -moz-transition-duration: .2s;
+                transition-duration: .2s;
+            }
+            .milestone-number {
+                opacity: .3;
+            }
+            .milestone-text {
+                color: rgba(120,120,145,.79);
+                padding: 0 13px;
+            }
+            .milestone-completion {
+                border: 1px solid rgba(120,120,145,.08);
+                border-radius: 5px;
+                color: rgba(120,120,145,.68);
+                float: right;
+                font-size: .8em;
+                font-weight: 700;
+                line-height: 26px;
+                margin: 8px 21px;
+                padding: 0 8px;
+            }
+        }
+        .milestone-composer {
+            background: rgba(120, 120, 145, 0.05);
+            border-radius: 3px;
+            font-size: .8em;
+            height: 110px;
+            margin: 5px 8px 8px 8px;
+            padding: 13px;
+            .mc-idx-col {
+                float: left;
+                width: 35px;
+            }
+            .mc-title-col {
+                margin-left: 35px;
+            }
+            input {
+                background: #fff;
+                border: 1px solid rgba(120, 120, 145, 0.2);
+                color: rgba(120, 120, 145, 0.8);
+                height: 40px;
+                width: 100%;
+                &[type="number"]{
+                    text-align: center;
+                    text-indent: 2px;
+                    border-right: none;
+                }
+                &[type="text"]{
+                    text-indent: 8px;
+                }
+            }
+            .mc-controls {
+                margin-top: 8px;
+                button {
+                    height: 40px;
+                    line-height: 38px;
+                }
+                i.icon-remove {
+                    color: rgba(120,120,145,.3);
+                    font-size: 1.5em;
+                    padding: 8px;
+                }
+            }
+        }
+        a.open-milestone-composer {
+            background: rgba(120, 120, 145, 0.01);
+            color: rgba(120, 120, 145, 0.4);
+            display: block;
+            font-size: .8em;
+            line-height: 42px;
+            padding: 0 26px;
+            i.icon-plus {
+                margin-right: 8px;
+                opacity: .5;
             }
         }
     }
 }
-
