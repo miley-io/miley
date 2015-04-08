@@ -33,12 +33,19 @@ function Mission($q, $http) {
       return deferred.promise;
     },
     
-    milestones: function() {
-      return []
-    },
-
-    tasks: function() {
-      return []
+    milestones: function(mission_id) {
+      var deferred = $q.defer();
+      $http({
+        method: 'GET',
+        url: AppSettings.apiPath + '/missions/' + mission_id + '/milestones',
+        withCredentials: true,
+        dataType: "json"
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(err, status) {
+        deferred.reject(err, status);
+      })
+      return deferred.promise;      
     }
   }
 }
