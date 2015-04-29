@@ -9,6 +9,7 @@
 
 /* Imports */
 @import 'vars';
+@import '../../bower_components/fever/scss/fever';
 
 /* Mission Page */
 #mission {
@@ -29,29 +30,35 @@
 
 .mission-roadmap {
     background: $light-gray;
+    border-radius: 5px 0 0 5px;
+    color: $gray;
     min-height: 377px;
+    width: 100%;
+    @extend .u-clear;
+    $milestones-width: 287px;
     .roadmap-milestones {
         border-right: 1px solid rgba(120,120,145,.05);
-        float: left;
-        margin-top: 13px;
-        width: 287px;
+        display: table-cell;
+        position: relative;
+        width: $milestones-width;
         h5 {
-            font-size: 1rem;
+            font-size: .9rem;
+            letter-spacing: .05rem;
+            margin: 0;
             padding: 21px 34px;
             text-transform: uppercase;
         }
         ul.roadmap-milestones-list {
             border-top: 1px solid rgba(120,120,145,.05);
             font-size: .8em;
-            position: relative;
             &:after{
                 background: #fff;
                 content: "";
                 position: absolute;
                 top: 0;
                 height: 100%;
-                right: -19px;
-                width: 18px;
+                right: -1px;
+                width: 21px;
             }
         }
         li {
@@ -59,6 +66,7 @@
             display: block;
             height: 45px;
             line-height: 45px;
+            margin: 0;
             margin-left: 21px;
             padding: 0 13px;
             position: relative;
@@ -174,5 +182,156 @@
                 opacity: .5;
             }
         }
+    }
+    .roadmap-window {
+        background: #fff;
+        border-radius: 0 5px 5px 0;
+        display: table-cell;
+        padding: 21px 34px 21px 13px;
+        vertical-align: top;
+        h2 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            letter-spacing: .05rem;
+            margin-bottom: 13px;
+        }
+        p {
+            line-height: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+    }
+    .roadmap-tasks {
+        
+    }
+}
+
+ul.task-list {
+    list-style-type: none;
+    margin: 0;
+    li.task {
+        background: #fff;
+        border: 1px solid rgba(120, 120, 145, 0.15);
+        border-radius: 5px;
+        border-bottom: 2px solid rgba(120, 120, 145, 0.2);
+        height: 68px;
+        margin-bottom: 5px;
+        padding: 8px 13px;
+        .task-priority {
+            border-radius: 5px 0 0 5px;
+            float: left;
+            height: 68px;
+            margin-top: -9px;
+            margin-left: -14px;
+            width: 8px;
+            &.is-high { background: #aa344b; }
+            &.is-normal { background: #e77f50; }
+            &.is-low { background: #e7ca50; }
+        }
+        .l_task-id-col {
+            border-right: 1px solid rgba(120, 120, 145, 0.05);
+            float: left;
+            height: 100%;
+            padding: 0 8px;
+        }
+        .l_task-title-col {
+            margin-left: 42px;
+            margin-right: 110px;
+            padding: 0 13px;
+        }
+        .task-id {
+            font-size: .9em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        .task-actionable {
+            border-left: 1px solid rgba(120, 120, 145, 0.03);
+            float: right;
+            width: 55px;
+            a {
+                color: rgba(110, 110, 136, 0.5);
+                display: block;
+                text-align: center;
+                text-decoration: none;
+                margin: -8px 0;
+                padding: 15px 0;
+                &:hover {
+                    background: linear-gradient(rgba(110, 110, 136, .01), rgba(110, 110, 136, .03));
+                    span {
+                        background: rgba(110, 110, 136, 0.01);
+                    }
+                }
+                span {
+                    display: inline-block;
+                    line-height: 34px;
+                    width: 34px;
+                }
+            }
+        }
+        .task-title {
+            margin-bottom: 8px;
+            width: 100%;
+            a {
+                color: #787891;
+                text-decoration: none;
+            }
+            &:hover {
+                a {
+                    color: #138a72;
+                    text-decoration: underline;
+                }
+            }
+        }
+        .task-branch {
+            border: 1px solid rgba(120, 120, 145, 0.1);
+            border-radius: 3px;
+            color: rgba(120, 120, 145, 0.68);
+            font-size: .75em;
+            padding: 5px 8px;
+        }
+        .task-tag {
+            margin: 0 8px;
+            opacity: .7;
+        }
+        .task-duration {
+            color: rgba(120,120,145,0.45);
+            float: right;
+            font-size: .9em;
+            text-align: right;
+        }
+        ul.task-assignees {
+            list-style-type: none;
+            margin: 0;
+            li.task-assignee {
+                img {
+                    border-radius: 2px;
+                    height: 26px;
+                    width: 26px;
+                }
+            }
+        }
+        &.is-complete {
+            .ui-checkbox {
+                display: none;
+            }
+            i.icon-ok {
+                display: block;
+                text-align: center;
+                opacity: .5;
+                padding: 0 5px;
+                width: 38px;
+            }
+            p {
+                color: rgba(120,120,145,0.45);
+                text-decoration: line-through;
+                font-style: italic;
+            }
+        }
+    }
+    i.icon-ok {
+        float: left;
+        display: none;
+    }
+    .ui-checkbox {
+        border-radius: 26px;
     }
 }
