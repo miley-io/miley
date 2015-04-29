@@ -75,6 +75,40 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
           }
         }
       }
+    })
+    .state('Mission.Milestone', {
+      url: '/M:msid',
+      views: {
+        'roadmap_window': {
+          templateUrl: 'partials/private/mission/milestone',
+          controller: function($scope, $stateParams, Mission) {
+            var mid = $scope.mission.id;
+            var msid = $stateParams.msid;
+            Mission.milestone(mid, msid).then(function(milestone) {
+              $scope.milestone = milestone;
+            })
+          }
+        }
+      }
+    })
+    .state('Mission.Milestone.Task', {
+      url: '/T:tid',
+      views: {
+        'milestone_window': {
+          templateUrl: 'partials/private/mission/task',
+          controller: function($scope, $stateParams, Mission) {
+            var mid = $scope.mission.id;
+            var msid = $stateParams.msid;
+            var tid = $stateParams.tid;
+            console.log(mid);
+            console.log(msid);
+            console.log(tid);
+            Mission.task(mid, msid, tid).then(function(task) {
+              $scope.task = task;
+            })
+          }
+        }
+      }
     });
   
   $urlRouterProvider.otherwise('/');
