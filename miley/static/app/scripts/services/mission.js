@@ -46,7 +46,37 @@ function Mission($q, $http) {
         deferred.reject(err, status);
       })
       return deferred.promise;      
-    }
+    },
+
+    milestone: function(mission_id, milestone_id) {
+      var deferred = $q.defer();
+      $http({
+        method: 'GET',
+        url: AppSettings.apiPath + '/missions/' + mission_id + '/milestones/' + milestone_id,
+        withCredentials: true,
+        dataType: "json"
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(err, status) {
+        deferred.reject(err, status);
+      })
+      return deferred.promise;
+    },
+
+    task: function(mid, msid, tid) {
+      var deferred = $q.defer();
+      $http({
+        method: 'GET',
+        url: AppSettings.apiPath + '/missions/' + mid + '/milestones/' + msid + '/tasks/' + tid,
+        withCredentials: true,
+        dataType: "json"
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(err, status) {
+        deferred.reject(err, status);
+      })
+      return deferred.promise;
+    }    
   }
 }
 
