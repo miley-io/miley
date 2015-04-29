@@ -1,3 +1,29 @@
-<div id="milestone">
-  <h2 class="title"></h2>
+<div id="milestone" ui:view="milestone_window">
+  <h2 class="title">[[milestone.title]]</h2>
+  <p>[[milestone.description]]</p>
+  <div class="milestone-tasks">
+    <ul class="task-list">
+      <li class="task" ng:repeat="task in milestone.tasks">
+        <div class="task-actionable">
+          <a href=""><span>0</span></a>
+        </div>
+        <div class="task-actionable">
+          <a href=""><span>0</span></a>
+        </div>
+        <div class="task-priority is-high"></div>
+        <div class="l_task-id-col">
+          <div class="task-id">T[[task.id]]</div>
+          <ul class="task-assignees">
+            <li class="task-assignee">
+              <img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/c204.44.551.551/s50x50/395709_158244927619341_384161655_n.jpg?oh=a6d5e4bcd86fa075653797b754f987d2&oe=55CE69A0&__gda__=1436231824_8f5c9dfa424fa4ad53f1ac857fa0e8a7"/>
+            </li>
+          </ul>
+        </div>
+        <div class="l_task-title-col">
+          <div class="task-title"><a ui:sref="Mission.Milestone.Task({mid: mission.id, msid: milestone.id, tid: task.id})">[[task.title]]</a></div>
+          <span class="task-branch">T[[task.muid]]/[[task.task_type]]/[[task.slug]]</span>
+          </div>
+      </li>
+    </ul>
+  </div>
 </div>

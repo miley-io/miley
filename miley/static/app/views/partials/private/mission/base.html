@@ -1,5 +1,5 @@
 
-<article id="mission">
+<article id="mission" class="mission-[[mission.id]]">
   <header>
     <h1 class="mission-title">[[mission.org.name]] / [[mission.slug]]</h1>
     <div class="mission-actions"></div>
@@ -10,13 +10,13 @@
 
   <section class="mission-tracker"></section>
 
-  <section class="mission-roadmap">
+  <section mission:roadmap mission="[[mission.id]]" class="mission-roadmap">
     <div class="roadmap-milestones">
-      <h5></h5>
+      <h5>Milestones</h5>
       <ul class="roadmap-milestones-list">
-        <li ng:repeat="milestone in m.milestones" ui:sref:active="active">
-          <a href ui:sref="mission.milestone({ id: milestone.muid })">
-            <span class="milestone-number">[[$$index + 1]].</span>
+        <li ng:repeat="milestone in milestones" ui:sref:active="active">
+          <a href ui:sref="Mission.Milestone({ msid: milestone.id })">
+            <span class="milestone-number">[[$index + 1]].</span>
             <span class="milestone-text">[[milestone.title]]</span>
             <span class="milestone-completion">
               <span class="amt-tasks-completed">0</span> /
