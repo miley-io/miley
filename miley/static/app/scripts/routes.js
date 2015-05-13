@@ -8,7 +8,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
   $locationProvider.html5Mode(true);
 
   $stateProvider
-    .state('Home', {
+    .state('Workspace', {
       url: '/',
       views: {
         'public': {
@@ -53,13 +53,17 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('Mission', {
-      url: '/:uname/:mslug',
+    .state('Workspace.Mission', {
+      url: ':uname/:mslug',
       views: {
         'public': {
           controller: function($state) { $state.go('Login'); }
         },
         'private': {
+          templateUrl: 'partials/private/workspace',
+          controller: 'WorkspaceCtrl as workspace'
+        },        
+        'workspace_window': {
           templateUrl: 'partials/private/mission/base',
           controller: 'MissionCtrl as mission',
           resolve: {
@@ -76,22 +80,16 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
         }
       }
     })
-    .state('Mission.Milestone', {
+    .state('Workspace.Mission.Milestone', {
       url: '/M:msid',
       views: {
         'roadmap_window': {
           templateUrl: 'partials/private/mission/milestone',
-          controller: function($scope, $stateParams, Mission) {
-            var mid = $scope.mission.id;
-            var msid = $stateParams.msid;
-            Mission.milestone(mid, msid).then(function(milestone) {
-              $scope.milestone = milestone;
-            })
-          }
+          controller: 'MilestoneCtrl as milestone'
         }
       }
     })
-    .state('Mission.Milestone.Task', {
+    .state('Workspace.Mission.Milestone.Task', {
       url: '/T:tid',
       views: {
         'milestone_window': {

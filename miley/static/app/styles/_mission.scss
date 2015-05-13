@@ -9,16 +9,24 @@
 
 /* Imports */
 @import 'vars';
-@import '../../bower_components/fever/scss/fever';
 
 /* Mission Page */
 #mission {
-    padding: 34px 0;
     header {
         h1.mission-title {
+            background: $dark-gray;
             font-size: 1.5rem;
+            left: 21px;
+            margin: 0;
+            right: 288px;
+            padding: 21px 0 13px 13px;
+            position: fixed;
+            z-index: 1;
         }
-        div.mission-actions {}
+        .mission-actions {}
+        .mission-description {
+            padding-top: 62px;
+        }
     }
     .mission-tracker {
         background: rgba(0,0,0,.1);
@@ -30,7 +38,7 @@
 
 .mission-roadmap {
     background: $light-gray;
-    border-radius: 5px 0 0 5px;
+    border-radius: 5px;
     color: $gray;
     min-height: 377px;
     width: 100%;
@@ -196,7 +204,8 @@
             margin-bottom: 13px;
         }
         p {
-            line-height: 1.5rem;
+            font-size: .9rem;
+            line-height: 1.4rem;
             margin-bottom: 1.5rem;
         }
     }
@@ -271,7 +280,8 @@ ul.task-list {
             margin-bottom: 8px;
             width: 100%;
             a {
-                color: #787891;
+                color: inherit;
+                font-weight: 700;
                 text-decoration: none;
             }
             &:hover {
@@ -285,7 +295,7 @@ ul.task-list {
             border: 1px solid rgba(120, 120, 145, 0.1);
             border-radius: 3px;
             color: rgba(120, 120, 145, 0.68);
-            font-size: .75em;
+            font-size: .8em;
             padding: 5px 8px;
         }
         .task-tag {

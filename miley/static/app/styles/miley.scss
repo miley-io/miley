@@ -11,9 +11,12 @@
 /* Libraries */
 @import '../../bower_components/fever/scss/fever';
 
+
 /* Components */
 @import 'base';
 @import 'landing';
 @import 'login';
 @import 'workspace';
 @import 'mission';
+
+html { overflow-y: hidden; }

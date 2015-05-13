@@ -1,13 +1,16 @@
 
 <div workspace id="workspace">
-  <h6>My Missions</h6>
-  <div class="workspace-missions">
-    <ul class="mission-cards">
+  <div id="workspace_window" ui:view="workspace_window">
+    <h6>My workspace</h6>
+  </div>
+  <div id="workspace_sidebar">
+    <h6>My Missions</h6>
+    <ul class="mission-navigation">
       <li ng:repeat="m in missions" class="mission-card">
-        <a href ui:sref="Mission({ uname: m.org.name, mslug: m.slug})">
+        <a href ui:sref="Workspace.Mission({ uname: m.org.name, mslug: m.slug})">
           <span>[[m.org.name]] / [[m.slug]]</span>
         </a>
       </li>
-    </ul>
+    </ul>    
   </div>
 </div>
