@@ -9,5 +9,6 @@ require('./landing.js');
 require('./login.js');
 require('./logout.js');
 require('./signup.js');
-require('./mission.js');
 require('./workspace.js');
+require('./mission.js');
+require('./milestone.js');
