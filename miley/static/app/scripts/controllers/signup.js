@@ -10,7 +10,9 @@ function SignupCtrl($stateParams, $timeout, Session) {
   this.register = function() {
     this.user.password_conf = this.user.password;
     Session.register(this.user).then(function(data) {
-      window.location.href = '/';
+      Session.sendActivationEmail().then(function(data) {
+        window.location.href = '/';
+      });
     });
   };
 }

@@ -36,6 +36,20 @@ function Session($q, $http) {
       return deferred.promise;
     },
 
+    sendActivationEmail: function() {
+      var deferred = $q.defer();      
+      $http({
+        method: 'POST',
+        url: AppSettings.apiPath + '/auth/activate?service=miley',
+        withCredentials: true
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(err, status) {
+        deferred.reject(err, status);
+      });
+      return deferred.promise;
+    },
+
     login: function(creds) {
       var deferred = $q.defer();      
       $http({
