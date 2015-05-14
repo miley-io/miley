@@ -1,3 +1,16 @@
 <div id="task">
+  <a class="inherit" ui:sref="Workspace.Mission.Milestone({ msid: milestone.id })">
+    <h5>[[milestone.title]]</h5>
+  </a>
   <h2>[[task.title]]</h2>
+  <p>[[task.description]]</p>
+  <ul class="roadmap-steps-list">
+    <li ng:repeat="step in task.steps">
+      <a class="inherit" ui:sref="Workspace.Mission.Milestone.Task.Step({ mid: mission.id, msid: milestone.id, tid: task.id, sid: step.id })"><span>([[step.hours]]h) [[step.title]]</span></a>
+    </li>
+  </ul>
+  <div id="step_modal" ng:show="ui.showingStepModal">
+    <a ui:sref="Workspace.Mission.Milestone.Task({ mid: mission.id, msid: milestone.id, tid: task.id })" ng:click="ui.showingStepModal = false"><div class="modal-overlay"></div></a>
+    <div class="modal" ui:view="roadmap_step_modal">step modal</div>
+  </div>
 </div>

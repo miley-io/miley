@@ -14,19 +14,12 @@
 #mission {
     header {
         h1.mission-title {
-            background: $dark-gray;
             font-size: 1.5rem;
-            left: 21px;
             margin: 0;
-            right: 288px;
-            padding: 21px 0 13px 13px;
-            position: fixed;
-            z-index: 1;
+            padding-bottom: 13px;
         }
         .mission-actions {}
-        .mission-description {
-            padding-top: 62px;
-        }
+        .mission-description {}
     }
     .mission-tracker {
         background: rgba(0,0,0,.1);
@@ -41,14 +34,18 @@
     border-radius: 5px;
     color: $gray;
     min-height: 377px;
-    width: 100%;
-    @extend .u-clear;
+    position: absolute;
+    right: 309px;
+    bottom: 21px;
+    left: 34px;    
     $milestones-width: 287px;
     .roadmap-milestones {
         border-right: 1px solid rgba(120,120,145,.05);
-        display: table-cell;
-        position: relative;
+        float: left;
+        height: 100%;
+        overflow: hidden;
         width: $milestones-width;
+        &:hover { overflow-y: scroll; }
         h5 {
             font-size: .9rem;
             letter-spacing: .05rem;
@@ -59,15 +56,15 @@
         ul.roadmap-milestones-list {
             border-top: 1px solid rgba(120,120,145,.05);
             font-size: .8em;
-            &:after{
+/*            &:after{
                 background: #fff;
                 content: "";
                 position: absolute;
                 top: 0;
                 height: 100%;
-                right: -1px;
+                right: -100px;
                 width: 21px;
-            }
+            }*/
         }
         li {
             cursor: pointer;
@@ -194,14 +191,21 @@
     .roadmap-window {
         background: #fff;
         border-radius: 0 5px 5px 0;
-        display: table-cell;
-        padding: 21px 34px 21px 13px;
-        vertical-align: top;
+        height: 100%;
+        margin-left: 288px;
+        overflow-y: scroll;
+        padding: 21px 34px 21px;
         h2 {
             font-size: 1.6rem;
             font-weight: 700;
             letter-spacing: .05rem;
             margin-bottom: 13px;
+        }
+        h5 {
+            color: #999;
+            font-size: 1.2rem;
+            margin: 0;
+            margin-bottom: 5px;
         }
         p {
             font-size: .9rem;
@@ -345,3 +349,4 @@ ul.task-list {
         border-radius: 26px;
     }
 }
+

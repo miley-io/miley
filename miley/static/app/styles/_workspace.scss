@@ -54,13 +54,8 @@
 $sidebar-width: 288px;
 
 #workspace_window {
-    overflow-y: scroll;
     padding: 0 11px 0 34px;
-    position: fixed;
-    top: 55px;
-    right: $sidebar-width;
-    bottom: 0;
-    left: 0;
+    margin-right: $sidebar-width;
 }
 
 #workspace_sidebar {
@@ -93,6 +88,24 @@ $sidebar-width: 288px;
     }
 }
 
+.modal-overlay {
+    background: rgba(0,0,0,.5);
+    position: fixed;
+    top: 0; right: 0; bottom: 0; left: 0;
+    z-index: 100;
+}
 
-
+.modal {
+    background: #fff;
+    border-radius: 5px;
+    padding: 34px;
+    position: fixed;
+    left: 50%;
+    min-height: 550px;
+    top: 50%;
+    left: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    width: 750px;
+    z-index: 101;
+}
 
