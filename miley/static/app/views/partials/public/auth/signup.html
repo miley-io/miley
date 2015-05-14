@@ -1,1 +1,18 @@
-<h5>Sign up for Miley</h5>
+<div id="login">
+  <h5>Get Miley</h5>
+
+  <form name="creds" id="creds">
+    <div class="ui-field">
+      <label for="username">Username:</label>
+      <input type="text" name="username" ng:model="auth.user.username"/>
+    </div>
+    <div class="ui-field">
+      <label for="email">Email address:</label>
+      <input type="email" name="email" ng:model="auth.user.email"/>
+    </div>
+    <div class="ui-field">
+      <label for="password">Password:</label>
+      <input type="password" name="password" ng:model="auth.user.password"/>
+    </div>
+    <input type="submit" class="silver" ng:click="auth.register()" value="Sign Up">
+  </form>

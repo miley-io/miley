@@ -46,7 +46,7 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
       views: {
         'public': {
           templateUrl: 'partials/public/auth/signup',
-          controller: 'SignupCtrl as signup'
+          controller: 'SignupCtrl as auth'
         },
         'private': {
           controller: function($state) { $state.go('Home'); }

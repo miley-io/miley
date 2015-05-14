@@ -8,6 +8,7 @@ var AppSettings = require('../config.js');
  */
 function Session($q, $http) {
   var _default = {
+    username: null,
     logged: false,
     clearance: 1,
     email: ""
@@ -20,14 +21,28 @@ function Session($q, $http) {
       return _default;    
     },
 
+    register: function(creds) {
+      var deferred = $q.defer();      
+      $http({
+        method: 'POST',
+        url: AppSettings.apiPath + '/auth/register?service=miley',
+        data: creds,
+        withCredentials: true
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(err, status) {
+        deferred.reject(err, status);
+      });
+      return deferred.promise;
+    },
+
     login: function(creds) {
       var deferred = $q.defer();      
       $http({
         method: 'POST',
         url: AppSettings.apiPath + '/auth/login?service=miley',
         data: creds,
-        withCredentials: true,
-        dataType: "json"
+        withCredentials: true
       }).success(function(data) {
         deferred.resolve(data);
       }).error(function(err, status) {
@@ -42,6 +57,7 @@ function Session($q, $http) {
         method: 'GET',
         url: AppSettings.apiPath + '/auth/logout',
         withCredentials: true,
+        crossDomain : true,
         dataType: "json"
       }).success(function(data) {
         deferred.resolve(data);
