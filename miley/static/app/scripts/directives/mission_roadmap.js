@@ -2,7 +2,7 @@
 
 var directives = require('./_index.js');
 
-function missionRoadmap() {
+function missionRoadmap($window) {
   return {
     restrict: 'A',
     controller: function($scope, $element, $attrs, $timeout, Mission) {
@@ -12,6 +12,11 @@ function missionRoadmap() {
           $scope.milestones = data;
         })
       }, 0);
+    },
+    link: function(scope, elem, attrs) {
+      var window_height = $window.innerHeight;
+      var elem_height = window_height - 199;
+      elem.css('height', elem_height + 'px');
     }
   }
 }

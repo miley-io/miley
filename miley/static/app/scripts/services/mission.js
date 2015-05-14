@@ -76,7 +76,22 @@ function Mission($q, $http) {
         deferred.reject(err, status);
       })
       return deferred.promise;
-    }    
+    },
+
+    step: function(mid, msid, tid, sid) {
+      var deferred = $q.defer();
+      $http({
+        method: 'GET',
+        url: AppSettings.apiPath + '/missions/' + mid + '/milestones/' + msid + '/tasks/' + tid + '/steps/' + sid,
+        withCredentials: true,
+        dataType: "json"
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(err, status) {
+        deferred.reject(err, status);
+      })
+      return deferred.promise;
+    }
   }
 }
 

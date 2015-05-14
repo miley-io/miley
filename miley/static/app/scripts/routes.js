@@ -98,12 +98,27 @@ function Routes($stateProvider, $locationProvider, $urlRouterProvider) {
             var mid = $scope.mission.id;
             var msid = $stateParams.msid;
             var tid = $stateParams.tid;
-            console.log(mid);
-            console.log(msid);
-            console.log(tid);
             Mission.task(mid, msid, tid).then(function(task) {
               $scope.task = task;
             })
+          }
+        }
+      }
+    })
+    .state('Workspace.Mission.Milestone.Task.Step', {
+      url: '/S:sid',
+      views: {
+        'roadmap_step_modal': {
+          templateUrl: 'partials/private/mission/step',
+          controller: function($scope, $stateParams, Mission) {
+            var mid = $scope.mission.id;
+            var msid = $stateParams.msid;
+            var tid = $stateParams.tid;
+            var sid = $stateParams.sid;
+            Mission.step(mid, msid, tid, sid).then(function(step) {
+              $scope.step = step;
+            })
+            $scope.ui.showingStepModal = true;
           }
         }
       }
