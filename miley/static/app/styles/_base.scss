@@ -15,9 +15,9 @@
 
 body {
     font-family: 'PT Sans', sans-serif;
+    background: $soft-orange;
+    color: #f9f9f9;
     &.l-public {
-        background: $soft-orange;
-        color: #f9f9f9;
         input { color: #333; }
     }
     &.l-private {
@@ -29,6 +29,11 @@ body {
             left: 0;
             right: 0;
             z-index: 99;
+            .app-header-logo {
+                margin: 8px 0;
+                width: 42px;
+                img { width: 100%; }
+            }
         }
     }
 }
@@ -63,3 +68,97 @@ body {
 [ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}
 
 a.inherit { color: inherit; text-decoration: none; }
+
+.la-ball-circus {
+    position: relative;
+}
+.la-ball-circus > div {
+    position: relative;
+    box-sizing: content-box;
+    color: #fff;
+    background: #fff;
+    border-color: #fff;
+    border-style: solid;
+    border-width: 0;
+}
+.la-ball-circus:after {
+    display: table;
+    clear: both;
+    line-height: 0;
+    content: "";
+}
+.la-ball-circus.la-dark > div {
+    color: #444;
+    background: #444;
+    border-color: #444;
+}
+.la-ball-circus {
+    width: 16px;
+    height: 16px;
+}
+.la-ball-circus > div {
+    position: absolute;
+    top: 0;
+    left: -100%;
+    display: block;
+    float: left;
+    width: 16px;
+    width: 100%;
+    height: 16px;
+    height: 100%;
+    border-radius: 100%;
+    opacity: .5;
+    animation: ball-circus-position 2.5s infinite cubic-bezier(.25, 0, .75, 1), ball-circus-size 2.5s infinite cubic-bezier(.25, 0, .75, 1);
+}
+.la-ball-circus > div:nth-child(1) {
+    animation-delay: 0s, -.5s;
+}
+.la-ball-circus > div:nth-child(2) {
+    animation-delay: -.5s, -1s;
+}
+.la-ball-circus > div:nth-child(3) {
+    animation-delay: -1s, -1.5s;
+}
+.la-ball-circus > div:nth-child(4) {
+    animation-delay: -1.5s, -2s;
+}
+.la-ball-circus > div:nth-child(5) {
+    animation-delay: -2s, -2.5s;
+}
+.la-ball-circus.la-sm {
+    width: 8px;
+    height: 8px;
+}
+.la-ball-circus.la-sm > div {
+    width: 8px;
+    height: 8px;
+}
+.la-ball-circus.la-lg {
+    width: 24px;
+    height: 24px;
+}
+.la-ball-circus.la-lg > div {
+    width: 24px;
+    height: 24px;
+}
+.la-ball-circus.la-2x {
+    width: 32px;
+    height: 32px;
+}
+.la-ball-circus.la-2x > div {
+    width: 32px;
+    height: 32px;
+}
+/*
+ * Animations
+ */
+@keyframes ball-circus-position {
+    50% {
+        left: 100%;
+    }
+}
+@keyframes ball-circus-size {
+    50% {
+        transform: scale(.3, .3);
+    }
+}
