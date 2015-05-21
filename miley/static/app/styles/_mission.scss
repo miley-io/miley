@@ -11,21 +11,24 @@
 @import 'vars';
 
 /* Mission Page */
-#mission {
+article.mission {
     header {
-        h1.mission-title {
-            font-size: 1.5rem;
+        nav {
+            background: rgba(33, 33, 33, 0.18);
+            border-radius: 5px;
+            height: 42px;
             margin: 0;
-            padding-bottom: 13px;
+            a {
+                border-right: 1px solid rgba(255, 255, 255, 0.03);
+                color: #fff;
+                display: inline-block;
+                font-size: .9rem;
+                font-weight: 700;
+                line-height: 40px;
+                padding: 0 21px;
+                text-decoration: none;
+            }
         }
-        .mission-actions {}
-        .mission-description {}
-    }
-    .mission-tracker {
-        background: rgba(0,0,0,.1);
-        border: 3px dashed rgba(233,233,233,.2);
-        height: 233px;
-        margin-bottom: 2rem;
     }
 }
 
@@ -33,11 +36,12 @@
     background: $light-gray;
     border-radius: 5px;
     color: $gray;
-    min-height: 377px;
+    min-height: 144px;
     position: absolute;
+    top: 132px;
     right: 309px;
     bottom: 21px;
-    left: 34px;    
+    left: 34px;
     $milestones-width: 287px;
     .roadmap-milestones {
         border-right: 1px solid rgba(120,120,145,.05);
@@ -213,8 +217,30 @@
             margin-bottom: 1.5rem;
         }
     }
-    .roadmap-tasks {
-        
+    ul.roadmap-steps-list {
+        border: 1px solid rgba(0,0,0,.1);
+        border-radius: 5px;
+        li {
+            list-style-type: none;
+            margin: 0;
+            &:last-child { border: none; }
+            a {
+                background: rgba(229, 229, 229, 0.22);
+                border-bottom: 1px solid rgba(0,0,0,.1);
+                display: block;
+                padding: 13px;
+            }
+            .step-duration {
+                float: right;
+                padding-left: 13px;
+                width: 55px;
+            }
+            .step-title {
+                border-right: 1px solid rgba(0,0,0,.1);
+                margin-right: 55px;
+                padding-right: 13px;
+            }
+        }  
     }
 }
 
@@ -350,3 +376,27 @@ ul.task-list {
     }
 }
 
+#step_modal {
+    .modal { background: #e5e5e5; }
+}
+
+.step-list-progress {
+    margin-bottom: 13px;
+    span {
+        color: rgba(110, 110, 136, .5);
+        float: left;
+        font-size: .8em;
+        width: 34px;
+    }
+    .step-list-progress-wrap {
+        background: rgba(110, 110, 136, .08);
+        border-radius: 3px;
+        height: 13px;
+        margin-left: 34px;
+    }
+    .step-list-progress-complete {
+        background: #4180bf;
+        border-radius: 3px;
+        height: 13px;
+    }
+}

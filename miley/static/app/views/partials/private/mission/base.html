@@ -1,15 +1,11 @@
 
-<article id="mission" class="mission-[[mission.id]]">
+<article class="mission" id="mission_[[mission.id]]">
   <header>
-    <h1 class="mission-title">[[mission.org.name]] / [[mission.slug]]</h1>
-    <div class="mission-actions"></div>
-    <div class="mission-description">
-      <p>[[mission.description]]</p>
-    </div>
+    <nav>
+      <a href="">Overview</a>
+      <a href="">Roadmap</a>
+    </nav>
   </header>
-
-  <!--<section class="mission-tracker"></section>-->
-
   <section mission:roadmap mission="[[mission.id]]" class="mission-roadmap">
     <div class="roadmap-milestones">
       <h5>Milestones</h5>
@@ -30,9 +26,7 @@
         <a class="open-milestone-composer"></a>
       </div>
     </div>
-    <div class="roadmap-window" ui:view="roadmap_window">
-      
-    </div>
+    <div class="roadmap-window" ui:view="roadmap_window"></div>
   </section>
 </article>
 

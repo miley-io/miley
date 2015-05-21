@@ -1,5 +1,11 @@
 <div id="step">
   <h2>[[step.title]]</h2>
+  <div class="step-list-progress">
+    <span>68%</span>
+    <div class="step-list-progress-wrap">
+      <div class="step-list-progress-complete" style="width: 68%;"></div>
+    </div>
+  </div>
   <ul class="roadmap-step-details">
     <li ng:repeat="detail in step.details">
       <span>[[detail.desc]]</span>
