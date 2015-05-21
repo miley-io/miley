@@ -12,11 +12,6 @@ function missionRoadmap($window) {
           $scope.milestones = data;
         })
       }, 0);
-    },
-    link: function(scope, elem, attrs) {
-      var window_height = $window.innerHeight;
-      var elem_height = window_height - 199;
-      elem.css('height', elem_height + 'px');
     }
   }
 }
