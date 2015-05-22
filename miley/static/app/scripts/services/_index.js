@@ -8,3 +8,4 @@ module.exports = angular.module('miley.services', []);
 require('./session.js');
 require('./workspace.js');
 require('./mission.js');
+require('./milestone.js');

@@ -9,9 +9,9 @@ var AppSettings = require('../config.js');
 function Milestone($q, $http) {
 
   var _default = {
-    type: 'User',
-    email: ""
-  }
+    "title": "",
+    "description": ""
+  };
 
   return {
     reset: function() {
@@ -24,6 +24,22 @@ function Milestone($q, $http) {
         method: 'GET',
         url: AppSettings.apiPath + '/missions/' + mission_id + '/milestones/' + milestone_id,
         withCredentials: true,
+        dataType: "json"
+      }).success(function(data) {
+        deferred.resolve(data);
+      }).error(function(err, status) {
+        deferred.reject(err, status);
+      })
+      return deferred.promise;
+    },
+
+    create: function(mission_id, milestone) {
+      var deferred = $q.defer();
+      $http({
+        method: 'POST',
+        url: AppSettings.apiPath + '/missions/' + mission_id + '/milestones',
+        withCredentials: true,
+        data: milestone,
         dataType: "json"
       }).success(function(data) {
         deferred.resolve(data);

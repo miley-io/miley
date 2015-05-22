@@ -1,4 +1,3 @@
-
 <article class="mission" id="mission_[[mission.id]]">
   <header>
     <h1>[[mission.org.name]] / [[mission.slug]]</h1>
@@ -8,9 +7,9 @@
     </nav>
   </header>
   <section mission:roadmap mission="[[mission.id]]" class="mission-roadmap">
-    <div class="roadmap-milestones">
+    <div class="roadmap-milestones" ng:class="{'composing-milestone': mission.composingMilestone}">
       <h5>Milestones</h5>
-      <ul class="roadmap-milestones-list">
+      <ul class="roadmap-milestones-list" id="ms_list">
         <li ng:repeat="milestone in milestones" ui:sref:active="active">
           <a href ui:sref="Workspace.Mission.Milestone({ msid: milestone.id })">
             <span class="milestone-number">[[$index + 1]].</span>
@@ -23,8 +22,14 @@
         </li>
       </ul>
       <div class="roadmap-milestone-composer">
-        <div class="roadmap-milestone-composer-fields"></div>
-        <a class="open-milestone-composer"></a>
+        <div class="roadmap-milestone-composer-fields">
+          <a class="close-milestone-composer" ng:click="mission.closeMilestoneComposer()">✗</a>
+          <input type="text" ng:model="mission.newMilestone.title" placeholder="Milestone title"/>
+          <button ng:click="mission.createMilestone()">Add</button>
+        </div>
+      </div>
+      <div class="open-roadmap-milestone-composer">
+        <a href="#milestone_composer" ng:click="mission.openMilestoneComposer()">+ New milestone</a>
       </div>
     </div>
     <div class="roadmap-window" ui:view="roadmap_window"></div>

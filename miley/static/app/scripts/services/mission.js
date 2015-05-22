@@ -8,10 +8,7 @@ var AppSettings = require('../config.js');
  */
 function Mission($q, $http) {
 
-  var _default = {
-    type: 'User',
-    email: ""
-  }
+  var _default = {};
 
   return {
     reset: function() {
