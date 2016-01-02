@@ -1,0 +1,31 @@
+{
+  "name": "miley",
+  "description": "Miley is the free, milestone driven, multi-project manager for ambitious people.",
+  "main": "dist/miley.js",
+  "authors": [
+    "Mek Karpeles",
+    "Andrew Valish"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "project",
+    "management",
+    "trello",
+    "todo",
+    "productivity"
+  ],
+  "homepage": "https://github.com/miley-io/miley",
+  "moduleType": [
+    "globals"
+  ],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "fever": "~0.0.27"
+  }
+}
