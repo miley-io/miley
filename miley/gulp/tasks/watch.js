@@ -1,12 +1,13 @@
 'use strict';
 
-var config        = require('../config');
-var gulp          = require('gulp');
+var gulp = require('gulp');
+var config = require('../config');
 
-    gulp.task('watch', ['server'], function() {
+gulp.task('watch', function() {
 
-    gulp.watch(config.scripts.src, ['lint', 'browserify']);
-    gulp.watch(config.styles.src,  ['styles']);
-    gulp.watch(config.images.src,  ['images', 'reload']);
+  gulp.watch(config.views.src, ['views']);
+  gulp.watch(config.scripts.src, ['scripts']);
+  gulp.watch(config.styles.src, ['styles']);
+  gulp.watch(config.images.src, ['images']);
 
-});
+})

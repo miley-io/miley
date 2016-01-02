@@ -5,40 +5,35 @@ module.exports = {
   'serverport': 3000,
 
   'styles': {
-    'src' : 'app/styles/**/*.scss',
-    'dest': 'build/css'
+    'src' : 'src/styles/**/*.scss',
+    'dest': 'dist/styles'
   },
 
   'scripts': {
-    'src' : 'app/scripts/**/*.js',
-    'dest': 'build/js'
+    'main': 'src/scripts/components/app.js',
+    'src' : 'src/scripts/**/*',
+    'dest': 'dist/scripts'
   },
 
   'images': {
-    'src' : 'app/images/**/*',
-    'dest': 'build/images'
-  },
-
-  'fonts': {
-    'src' : 'app/fonts/*',
-    'dest': 'build/fonts'
+    'src' : 'src/images/**/*',
+    'dest': 'dist/images'
   },
 
   'views': {
     'watch': [
-      'app/views/**/*.html',
-      'app/**/views/*.html'
+      'src/index.html'
     ],
-    'src': 'app/views/**/*.html',
-    'dest': 'app/scripts'
+    'src': 'src/index.html',
+    'dest': 'dist'
   },
 
   'dist': {
-    'root'  : 'build'
+    'root': 'dist'
   },
 
   'browserify': {
-    'entries'   : ['./app/scripts/miley.js'],
+    'entries'   : ['./src/scripts/miley.js'],
     'bundleName': 'miley.js'
   },
 
