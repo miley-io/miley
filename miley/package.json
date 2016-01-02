@@ -1,0 +1,29 @@
+{
+  "name": "miley",
+  "version": "0.1.0",
+  "description": "Miley is the free, milestone driven, multi-project manager for ambitious people.",
+  "main": "dist/miley.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miley-io/miley.git"
+  },
+  "keywords": [
+    "project",
+    "management",
+    "trello",
+    "todo",
+    "productivity"
+  ],
+  "author": "Mek Karpeles, Andrew Valish",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/miley-io/miley/issues"
+  },
+  "homepage": "https://github.com/miley-io/miley#readme"
+}
