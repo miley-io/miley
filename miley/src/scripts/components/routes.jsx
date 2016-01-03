@@ -16,8 +16,9 @@ var IndexRoute = ReactRouter.IndexRoute;
 var routes = (
   <Route path="/" component={require('./base.jsx')}>
     <IndexRoute component={require('./landing.jsx')} />
+    <Route path="/users" component={require('./users.jsx')}>
+    </Route>
   </Route>
 );
 
 module.exports = routes;
-
