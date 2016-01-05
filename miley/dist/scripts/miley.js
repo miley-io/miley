@@ -23689,6 +23689,146 @@ module.exports = {
 };
 
 },{"./request":210}],212:[function(require,module,exports){
+"use sctrict";
+
+var requests = require('./request');
+
+
+/*
+var Detail = function() {
+    var _Detail = function(missionId, milestoneId, taskId, stepId, detailId) {
+        this.detail = requests.get(
+            '/missions/' + missionId + '/milestones/' + milestoneId +
+            '/tasks/' + taskId + '/steps' + stepId +
+            '/details/' + detailId
+            );
+        this.missionId = missionId;
+        this.milestoneId = milestoneId;
+        this.taskId = taskId;
+        this.stepId = stepId;
+        this.detailId;
+    }
+    return _Detail;
+}();
+*/
+
+
+var Step = function() {
+    var _Step = function(missionId, milestoneId, taskId, stepId) {
+        this.step = requests.get(
+            '/missions/' + missionId + '/milestones/' + milestoneId +
+                '/tasks/' + taskId + '/steps' + stepId
+        );
+        this.missionId = missionId;
+        this.milestoneId = milestoneId;
+        this.taskId = taskId;
+        this.stepId = stepId;
+    };
+    _Step.all = function(missionId, milestoneId, taskId) {
+        return requests.get(
+            '/missions/' + missionId + '/milestones/' + milestoneId +
+                '/tasks' + taskId + '/steps');
+    };
+    _Step.prototype = {
+        /*
+        details: function(detailId) {
+            // `id` is optional, all returned in no `id` specified 
+            return id ? new Detail(
+                this.missionId, this.milestoneId, this.taskId, this.stepId, detailId
+            ) : Detail.all(this.missionId, this.milestoneId, this.taskId);
+        }, */
+        save: function(obj) {
+            // NotImplemented
+        }
+    };
+}();
+
+
+var Task = function() {
+    var _Task = function(missionId, milestoneId, taskId) {
+        this.task = requests.get(
+            '/missions/' + missionId + '/milestones/' + milestoneId +
+                '/tasks/' + taskId
+        );
+        this.missionId = missionId;
+        this.milestoneId = milestoneId;
+        this.taskId = taskId;
+    }
+    _Task.all = function(missionId, milestoneId) {
+        return requests.get(
+            '/missions/' + missionId + '/milestones/' +
+                milestoneId + '/tasks');
+    }
+    _Task.prototype = {
+        steps: function(stepId) {
+            /* `id` is optional, all returned in no `id` specified */
+            return id ? new Step(this.missionId, this.milestoneId, this.taskId, stepId) :
+                Step.all(this.missionId, this.milestoneId, this.taskId);
+        },
+        save: function(obj) {
+            // NotImplemented
+        }
+    }
+    return _Task;
+}();
+
+
+var Milestone = function() {
+    var _Milestone = function(missionId, milestoneId) {
+        this.milestone = requests.get(
+            '/missions/' + missionId + '/milestones/', milestoneId
+        );
+        this.missionId = missionId;
+    }
+    _Milestone.all = function(missionId) {
+        return requests.get(
+            '/missions/' + missionId + '/milestones'
+        );
+    }
+    _Milestone.prototype = {
+        tasks: function(taskId) {
+            /* `id` is optional, all returned in no `id` specified */
+            return id ? new Task(this.missionId, this.milestoneId, taskId) :
+                Task.all(this.missionId, this.milestoneId);
+        },
+        save: function(obj) {
+            // NotImplemented
+        }
+    };
+    return _Milestone
+}();
+
+
+var Mission = function() {
+    var _Mission = function(id) {
+        this.mission = requests.get('/missions/', id);
+        this.missionId = id;
+    }
+    _Mission.prototype = {
+        milestones: function(milestoneId) {
+            /* `id` is optional, all returned in no `id` specified */
+            return id ? new Milestone(this.missionId, milestoneId) :
+                Milestone.all(this.missionId);
+        },
+    }
+    _Mission.all = function() {
+        return requests.get('/missions')
+    };
+    _Mission.create = function() {
+        return requests.post('/missions', obj);
+    };
+    return _Mission;
+}();
+
+
+module.exports = {
+    'Mission': Mission,
+    'Milestone': Milestone,
+    'Step': Step,
+    'Task': Task
+}
+
+},{"./request":210}],213:[function(require,module,exports){
 /*
   
   Miley React Application
@@ -23719,7 +23859,7 @@ var App = React.createClass({displayName: "App",
 
 ReactDOM.render(React.createElement(App, null), document.getElementById('miley'));
 
-},{"./routes.jsx":215,"react":207,"react-dom":25,"react-router":45}],213:[function(require,module,exports){
+},{"./routes.jsx":216,"react":207,"react-dom":25,"react-router":45}],214:[function(require,module,exports){
 /*
 
   Miley React Base Component
@@ -23747,7 +23887,7 @@ var Base = React.createClass({displayName: "Base",
 
 module.exports = Base;
 
-},{"react":207}],214:[function(require,module,exports){
+},{"react":207}],215:[function(require,module,exports){
 /*
 
   Miley Landing Component
@@ -23773,7 +23913,7 @@ var Landing = React.createClass({displayName: "Landing",
 
 module.exports = Landing;
 
-},{"react":207}],215:[function(require,module,exports){
+},{"react":207}],216:[function(require,module,exports){
 /*
 
   Miley React Routes
@@ -23793,13 +23933,15 @@ var routes = (
   React.createElement(Route, {path: "/", component: require('./base.jsx')}, 
     React.createElement(IndexRoute, {component: require('./landing.jsx')}), 
     React.createElement(Route, {path: "/users", component: require('./users.jsx')}
+    ), 
+    React.createElement(Route, {path: "/workspace", component: require('./workspace.jsx')}
     )
   )
 );
 
 module.exports = routes;
 
-},{"./base.jsx":213,"./landing.jsx":214,"./users.jsx":216,"react":207,"react-router":45}],216:[function(require,module,exports){
+},{"./base.jsx":214,"./landing.jsx":215,"./users.jsx":217,"./workspace.jsx":218,"react":207,"react-router":45}],217:[function(require,module,exports){
 "use strict";
 
 var User = require('../apis/users').User;
@@ -23839,4 +23981,44 @@ var BuddyList = React.createClass({displayName: "BuddyList",
 
 module.exports = BuddyList;
 
-},{"../apis/users":211,"react":207}]},{},[212]);
+},{"../apis/users":211,"react":207}],218:[function(require,module,exports){
+"use strict";
+
+var workspace = require('../apis/workspaces');
+var React = require('react');
+
+var Workspace = React.createClass({displayName: "Workspace",
+
+    getInitialState: function() {
+        return {
+            missions: []
+        }
+    },
+    
+    componentDidMount: function() {
+        var self = this;
+        workspace.Mission.all().then(function(response) {
+            self.setState({missions: response.body});
+        });
+    },
+
+    render: function() {
+        var buddies = this.state.missions.map(function(mission) {
+            return (
+                React.createElement("li", {key: mission.id}, mission.title, " (id: ", mission.id, ")")
+            )
+        });
+        return (
+            React.createElement("div", null, 
+            React.createElement("h1", null, "Workspace"), 
+            React.createElement("ul", null, 
+                buddies
+            )
+            )
+        );
+    }
+});
+
+module.exports = Workspace;
+
+},{"../apis/workspaces":212,"react":207}]},{},[213]);

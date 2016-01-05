@@ -33,7 +33,7 @@ var Step = function() {
         this.taskId = taskId;
         this.stepId = stepId;
     };
-    _Step.all = function(missionId, milestoneIdm taskId) {
+    _Step.all = function(missionId, milestoneId, taskId) {
         return requests.get(
             '/missions/' + missionId + '/milestones/' + milestoneId +
                 '/tasks' + taskId + '/steps');

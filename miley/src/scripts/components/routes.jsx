@@ -18,6 +18,8 @@ var routes = (
     <IndexRoute component={require('./landing.jsx')} />
     <Route path="/users" component={require('./users.jsx')}>
     </Route>
+    <Route path="/workspace" component={require('./workspace.jsx')}>
+    </Route>
   </Route>
 );
 
