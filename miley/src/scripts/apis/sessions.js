@@ -1,28 +1,17 @@
-
 "use strict";
 
-require('whatwg-fetch');
-var config = require('./_config');
-var Resource = require('./resource.js').Resource;
+var requests = require('./request');
 
+var Session = {
+    login: function() {
+        return requests.post('/auth/login', obj);
+    },
+    logout: function() {
+        return requests.get('/auth/logout');
+    },
+    get: function() {
+        return requests.get('/session');
+    }
+}
 
-var Session = function() {}
-Session.ormify = function(user, callback) {
-    return callback(this(user));
-};
-Session.get = function(id, undefined, callback) {
-    Resource.get('/session', this._ormify(Session, callback));
-};
-Session.register = function(form) {
-    fetch(url + '/auth/register', {
-        method: 'post',
-        body: new FormData(form)
-    })
-};
-Session.prototype = {
-    login: function(user, password, callback) {},
-    invalidate: function(callback) {}
-};
-
-
-
+modules.export = Session;

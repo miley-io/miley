@@ -23591,8 +23591,8 @@ module.exports = {
 require('whatwg-fetch');
 var config = require('./_config');
 
-var Resource = {
-    get: function(endpoint, id, cls) {
+var requests = {
+    get: function(endpoint, id) {
         var rc_url = config.url + endpoint;
         return fetch(id ? rc_url + '/' + id : rc_url, {
             credentials: 'include'
@@ -23608,42 +23608,87 @@ var Resource = {
         });
     },
 
-    all: function(endpoint, cls) {
-        return Resource.get(endpoint, undefined, cls);
+    post: function(endpoint, obj) {
+        return fetch(config.url + endpoint, {
+            credentials: 'include',
+            method: 'post',
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        }).then(function(response) {
+            return Promise.all([response.status, response.json()]);
+        }).then(function(completedResponse) {
+            return {
+                status: completedResponse[0],
+                body: completedResponse[1]
+            };
+        }).catch(function(ex) {
+            console.log('parsing failed', ex)
+        });
     },
 
-    create: function(endpoint, obj, cls) {
+    put: function(endpoint, id, obj) {
         console.log("NotImplemented");
     },
 
-    update: function(endpoint, id, obj, cls) {
+    delete: function(endpoint, id, obj) {
         console.log("NotImplemented");
     }
 };
-module.exports = Resource;
+
+module.exports = requests;
 
 },{"./_config":209,"whatwg-fetch":208}],211:[function(require,module,exports){
 "use strict";
 
-require('whatwg-fetch');
-var Resource = require('./resource');
+var requests = require('./request');
 
-var User = function(user) {
-    Resource.call(this, this, user);
+
+var User = function() {
+    var _User = function(id) {
+        this.user = requests.get('/users/', id);
+        this.userId = id;
+    };
+    _User.prototype = {
+        save: function(obj) {
+            // NotImplemented
+        }
+    };
+    _User.all = function() {
+        return requests.get('/users/');
+    };
+    _User.create = function(obj) {
+        return requests.create('/auth/register', obj);
+    };
+    return _User;
+}();
+
+
+var Org = function() {
+    var _Org = function(id) {
+        this.org = requests.get('/orgs', id);
+        this.orgId = id;
+    }
+    _Org.prototype = {
+        save: function(obj) {
+            // NotImplemented
+        }
+    };
+    _Org.all = function() {
+        return requests.get('/orgs');
+    }
+    return _Org;
+}();
+
+
+module.exports = {
+    'User': User,
+    'Org': Org
 };
-User.all = function() {
-    return Resource.all('/users/');
-}
-User.get = function(id) {
-    return Resource.get('/users/', id);
-}
-User.prototype = {
-    orgs: function() {}, // TODO: get this user's orgs,
-}
 
-module.exports = User;
-
-},{"./resource":210,"whatwg-fetch":208}],212:[function(require,module,exports){
+},{"./request":210}],212:[function(require,module,exports){
 /*
   
   Miley React Application
@@ -23757,7 +23802,7 @@ module.exports = routes;
 },{"./base.jsx":213,"./landing.jsx":214,"./users.jsx":216,"react":207,"react-router":45}],216:[function(require,module,exports){
 "use strict";
 
-var User = require('../apis/users');
+var User = require('../apis/users').User;
 var React = require('react');
 
 var BuddyList = React.createClass({displayName: "BuddyList",

@@ -1,6 +1,6 @@
 "use strict";
 
-var User = require('../apis/users');
+var User = require('../apis/users').User;
 var React = require('react');
 
 var BuddyList = React.createClass({
